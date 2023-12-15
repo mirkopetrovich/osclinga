@@ -208,32 +208,32 @@ void preset2() {
   delay(7000);  //7010
   FREC(frame,30,2);
   delay(1000);
-  ledcWrite(3, 100); //9010 luz front
+  ledcWrite(3, 100); 
   delay(50);
-  ledcWrite(3, 0);   //9060 luz R
+  ledcWrite(3, 0);   
   ledcWrite(4,100);
   delay(2000);
-  ledcWrite(4,0);    //9560 apaga luz R
-  FREC(frame,1,2);          //11060 1Hz
-  delay(2940); //14000
+  ledcWrite(4,0);   
+  FREC(frame,1,2);          
+  delay(2940); 
   FREC(frame,30,1);
   delay(1000);
-  ledcWrite(3, 100); //16000 luz front
+  ledcWrite(3, 100); 
   delay(50);
   ledcWrite(3, 0);
-  ledcWrite(1,100); //16050 luz L
+  ledcWrite(1,100); 
   FREC(frame,1,1);
   delay(500);
-  ledcWrite(1,0); //16550 luz off
+  ledcWrite(1,0); 
   FREC(frame,33,2);
   delay(1000);
-  ledcWrite(3, 100); //19000 luz front
+  ledcWrite(3, 100); 
   delay(50);
   ledcWrite(3, 0);
-  ledcWrite(4,100); //19050 luz R
+  ledcWrite(4,100); 
   delay(2000);
-  ledcWrite(4,0);    //19550 luz off
-  FREC(frame,1,2);         //21050 1Hz 
+  ledcWrite(4,0);    
+  FREC(frame,1,2);         
   preset= 3;
   }
 }
@@ -244,38 +244,38 @@ void preset20() {
 
   if (preset == 20) {
   FREC(frame,1,1);
-  delay(10);    //10
+  delay(10);    
   FREC(frame,1,2);
-  delay(7000);  //7010
+  delay(7000);  
   FREC(frame,30,1);
   delay(1000);
-  ledcWrite(3, 100); //16000 luz front
+  ledcWrite(3, 100); 
   delay(50);
   ledcWrite(3, 0);
-  ledcWrite(1,100); //16050 luz L
+  ledcWrite(1,100); 
   FREC(frame,1,1);
   delay(500);
-  ledcWrite(1,0); //16550 luz off
-  delay(2940); //14000
+  ledcWrite(1,0); 
+  delay(2940); 
   FREC(frame,33,2);
   delay(1000);
-  ledcWrite(3, 100); //19000 luz front
+  ledcWrite(3, 100); 
   delay(50);
   ledcWrite(3, 0);
-  ledcWrite(4,100); //19050 luz R
+  ledcWrite(4,100); 
   delay(2000);
-  ledcWrite(4,0);    //19550 luz off
-  FREC(frame,1,2);         //21050 1Hz 
+  ledcWrite(4,0);    
+  FREC(frame,1,2);         
   delay(1000);
   FREC(frame,30,1);
   delay(1000);
-  ledcWrite(3, 100); //16000 luz front
+  ledcWrite(3, 100); 
   delay(50);
   ledcWrite(3, 0);
-  ledcWrite(1,100); //16050 luz L
+  ledcWrite(1,100); 
   FREC(frame,1,1);
   delay(500);
-  ledcWrite(1,0); //16550 luz off
+  ledcWrite(1,0); 
   preset= 4;
   }
 }
