@@ -45,10 +45,14 @@ void ofApp::STOP(unsigned char *frame, int address) {
     CRC(frame);
     }
 
-void ofApp::FREC(unsigned char *frame, float frecuencia) {
+void ofApp::FREC(unsigned char *frame, int address, float frecuencia) {
     
     int frec_int = frecuencia * 10.;
     if (frec_int < 0) frec_int += 0xFFFF + 1;
+    
+    frame[0] = address;    // Address
+    frame[1] = 0x06;       // Function Code
+    frame[2] = 0x00;       // Register Number
     frame[3] = 0x01;
     frame[4] = (frec_int >> 8) & 0xFF;
     frame[5] = frec_int & 0xFF;
@@ -57,13 +61,13 @@ void ofApp::FREC(unsigned char *frame, float frecuencia) {
 
 void ofApp::CRC(unsigned char *frame) {
     
-    {
-      unsigned int temp, temp2, flag;
+    
+      unsigned int temp, flag;
       temp = 0xFFFF;
-      for (unsigned char i = 0; i < 6; i++)
+      for (int i = 0; i < 6; i++)
       {
-        temp = temp ^ frame[i];
-        for (unsigned char j = 1; j <= 8 ; j++)
+          temp ^=frame[i];
+        for (int j = 1; j <= 8 ; j++)
         {
           flag = temp & 0x0001;
           temp >>= 1;
@@ -74,7 +78,7 @@ void ofApp::CRC(unsigned char *frame) {
 
       frame[6] = temp & 0xFF;
       frame[7] = (temp >> 8) & 0xFF;
-    }
+    
     
 }
 
@@ -91,8 +95,8 @@ void ofApp::keyPressed(int key){
     if (key == 't') RUN(frame,2);
     if (key == 's') STOP(frame,1);
     if (key == 'd') STOP(frame,2);
-    if (key == '1') FREC(frame, 35);
-    if (key == '2') FREC(frame, 5);
+    if (key == '1') FREC(frame, 35, 1);
+    if (key == '2') FREC(frame, 5, 1);
     
 
 }

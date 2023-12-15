@@ -26,7 +26,7 @@ class ofApp : public ofBaseApp{
     
     void RUN(unsigned char *frame, int address);
     void STOP(unsigned char *frame, int address);
-    void FREC(unsigned char *frame, float frecuencia);
+    void FREC(unsigned char *frame, int address, float frecuencia);
     void CRC(unsigned char *frame);
     unsigned char frame[8] ;
 		
